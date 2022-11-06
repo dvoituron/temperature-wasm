@@ -1,0 +1,19 @@
+﻿@page "/temperature"
+@page "/temperature/{Celsius:int}"
+
+<MudStack>
+
+    <MudNumericField T="int" Label="Celsius" @bind-Value="@Celsius" />
+
+    <MudButton Variant="MudBlazor.Variant.Filled"
+               StartIcon="@Icons.Material.Filled.Calculate"
+               Color="Color.Primary"
+               OnClick="btnCalculate_Click">
+        Calculer
+    </MudButton>
+
+    <MudTextField T="int" Label="Fahrenheit" 
+                  Value="@Fahrenheit" 
+                  ReadOnly="true" />
+
+</MudStack>
