@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
-namespace Temperature.Pages;
+﻿namespace MyTemperature.Pages;
+using Microsoft.AspNetCore.Components;
 
 public partial class TemperaturePage
 {
@@ -14,7 +14,7 @@ public partial class TemperaturePage
     }
 
     public void btnCalculate_Click()
-    { 
-        Fahrenheit = Convert.ToInt32((9d / 5d) * Celsius + 32);
+    {
+        Fahrenheit = Convert.ToInt32(1.8 * Celsius + 32);
     }
 }

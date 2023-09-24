@@ -1,18 +1,15 @@
+namespace MyTemperature.Tests;
 using Bunit;
-using MudBlazor;
-using MudBlazor.Services;
-using Temperature.Pages;
-namespace Temperature.Tests;
+using Microsoft.Fast.Components.FluentUI;
+using MyTemperature.Pages;
 
-public class TemperatureTest
+public class TemperatureTests
 {
     [Fact]
     public void Temperature_20Celsius_68Fahrenheit()
     {
         // Arrange
         using var ctx = new TestContext();
-        ctx.Services.AddMudServices();
-        ctx.JSInterop.Mode = JSRuntimeMode.Loose;
 
         // Act
         var page = ctx.RenderComponent<TemperaturePage>(parameters =>
@@ -23,7 +20,7 @@ public class TemperatureTest
         // Assert
         Assert.Contains("value=\"68\"", page.Markup);
 
-        var fahrenheit = page.FindComponent<MudTextField<int>>();
+        var fahrenheit = page.FindComponents<FluentNumberField<int>>().Last();
         Assert.Equal(68, fahrenheit.Instance.Value);
     }
 }

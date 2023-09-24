@@ -1,0 +1,19 @@
+﻿@page "/temperature"
+@page "/temperature/{Celsius:int}"
+@using Microsoft.Fast.Components.FluentUI
+
+<FluentStack Orientation="Orientation.Vertical">
+
+    <FluentLabel>Celsius:</FluentLabel>
+    <FluentNumberField @bind-Value="@Celsius" />
+
+    <FluentButton Appearance="Appearance.Accent"
+                  OnClick="btnCalculate_Click">
+        <FluentIcon Icon="Icons.Regular.Size16.Calculator" Color="Color.Lightweight" Slot="start" />
+        Calculer
+    </FluentButton>
+
+    <FluentLabel>Fahrenheit:</FluentLabel>
+    <FluentNumberField @bind-Value="@Fahrenheit" Readonly="true" />
+
+</FluentStack>
